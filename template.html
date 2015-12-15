@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>System summary</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div><button id="button_lscpu">lscpu</button></div>
+  <div><button id="button_cpuinfo">/proc/cpuinfo</button></div>
+  <div><button id="button_meminfo">/proc/meminfo</button></div>
+  <div><button id="button_linux">Linux version</button></div>
+  <div><button id="button_lsblk">lsblk</button></div>
+  <div><button id="button_df">df</button></div>
+  <div><button id="button_os">OS release</button></div>
+
+  <script src="jquery.min.js"></script>
+
+  <script>
+    (function() {
+      var lscpu = $('<p></p>', {
+        html: 'LSCPU',
+        class: 'myClass',
+      }).insertAfter('#button_lscpu').toggle(),
+      cpuinfo = $('<p></p>', {
+        html: 'CPUINFO',
+        class: 'myClass',
+      }).insertAfter('#button_cpuinfo').toggle(),
+      meminfo = $('<p></p>', {
+        html: 'MEMINFO',
+        class: 'myClass',
+      }).insertAfter('#button_meminfo').toggle(),
+      linux = $('<p></p>', {
+        html: 'LINUX',
+        class: 'myClass',
+      }).insertAfter('#button_linux').toggle(),
+      lsblk = $('<p></p>', {
+        html: 'LSBLK',
+        class: 'myClass',
+      }).insertAfter('#button_lsblk').toggle(),
+      df = $('<p></p>', {
+        html: 'DF',
+        class: 'myClass',
+      }).insertAfter('#button_df').toggle(),
+      os = $('<p></p>', {
+        html: 'OS',
+        class: 'myClass',
+      }).insertAfter('#button_os').toggle();
+
+      $('#button_lscpu').on('click', function() {
+        lscpu.toggle();
+      });
+      $('#button_cpuinfo').on('click', function() {
+        cpuinfo.toggle();
+      });
+      $('#button_meminfo').on('click', function() {
+        meminfo.toggle();
+      });
+      $('#button_linux').on('click', function() {
+        linux.toggle();
+      });
+      $('#button_lsblk').on('click', function() {
+        lsblk.toggle();
+      });
+      $('#button_df').on('click', function() {
+        df.toggle();
+      });
+      $('#button_os').on('click', function() {
+        os.toggle();
+      });
+    })();
+  </script>
+</body>
+
+</html>
