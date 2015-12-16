@@ -23,6 +23,7 @@
   <div><button id="button_linux">Linux version (uname -a)</button></div>
   <div><button id="button_os">OS release (/etc/issue)</button></div>
   <div><button id="button_lsblk">Block devices (lsblk)</button></div>
+  <div><button id="button_lspci">PCI devices (lspci)</button></div>
   <div><button id="button_df">Disk usage (df -h)</button></div>
 
   <script src="jquery.min.js"></script>
@@ -56,6 +57,10 @@
       }).insertAfter('#button_os').toggle();
       lsblk = $('<p></p>', {
         html: '<pre>TAG_LSBLK</pre>',
+        class: 'info',
+      }).insertAfter('#button_lsblk').toggle(),
+      lspci = $('<p></p>', {
+        html: '<pre>TAG_LSPCI</pre>',
         class: 'info',
       }).insertAfter('#button_lsblk').toggle(),
       df = $('<p></p>', {
