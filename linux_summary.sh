@@ -28,3 +28,6 @@ do
     echo $INDEX > $HTML_FN
 done
 
+IP=$(hostname -I | cut -d' ' -f1)
+echo To view $HTML_FN, run \"python -m SimpleHTTPServer 12345\"
+echo then navigate to http://${IP}:12345
