@@ -16,47 +16,47 @@
   <a href="https://github.com/jschaub30/linux_summary.git" target="_blank">
     <img style="position: absolute; top: 0; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-  <h2>System summary for HOSTNAME</h2>
+  <h2>System summary for TAG_HOSTNAME (TAG_IPADDR)</h2>
   <div><button id="button_lscpu">CPU summary (lscpu)</button></div>
   <div><button id="button_cpuinfo">CPU info (/proc/cpuinfo)</button></div>
   <div><button id="button_meminfo">Memory (/proc/meminfo)</button></div>
   <div><button id="button_linux">Linux version (uname -a)</button></div>
+  <div><button id="button_os">OS release (/etc/issue)</button></div>
   <div><button id="button_lsblk">Block devices (lsblk)</button></div>
   <div><button id="button_df">Disk usage (df -h)</button></div>
-  <div><button id="button_os">OS release (/etc/issue)</button></div>
 
   <script src="jquery.min.js"></script>
 
   <script>
     (function() {
       var lscpu = $('<p></p>', {
-        html: '<pre>LSCPU</pre>',
+        html: '<pre>TAG_LSCPU</pre>',
         class: 'info',
       }).insertAfter('#button_lscpu').toggle(),
       cpuinfo = $('<p></p>', {
-        html: '<pre>CPUINFO</pre>',
+        html: '<pre>TAG_CPUINFO</pre>',
         class: 'info',
       }).insertAfter('#button_cpuinfo').toggle(),
       meminfo = $('<p></p>', {
-        html: '<pre>MEMINFO</pre>',
+        html: '<pre>TAG_MEMINFO</pre>',
         class: 'info',
       }).insertAfter('#button_meminfo').toggle(),
       linux = $('<p></p>', {
-        html: '<pre>LINUX</pre>',
+        html: '<pre>TAG_LINUX</pre>',
         class: 'info',
       }).insertAfter('#button_linux').toggle(),
+      os = $('<p></p>', {
+        html: '<pre>TAG_OS</pre>',
+        class: 'info',
+      }).insertAfter('#button_os').toggle();
       lsblk = $('<p></p>', {
-        html: '<pre>LSBLK</pre>',
+        html: '<pre>TAG_LSBLK</pre>',
         class: 'info',
       }).insertAfter('#button_lsblk').toggle(),
       df = $('<p></p>', {
-        html: '<pre>DF</pre>',
+        html: '<pre>TAG_DF</pre>',
         class: 'info',
       }).insertAfter('#button_df').toggle(),
-      os = $('<p></p>', {
-        html: '<pre>OS</pre>',
-        class: 'info',
-      }).insertAfter('#button_os').toggle();
 
       $('#button_lscpu').on('click', function() {
         lscpu.toggle();
