@@ -18,7 +18,7 @@ do
     COMMAND=${ALL_COMMANDS[i]}
     TAG=${ALL_TAGS[i]}
     # echo command is \"$COMMAND\", search is \"${TAG}\"
-    $COMMAND 2>&1 > tmp
+    $COMMAND > tmp
     DATA=$(cat tmp | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
     DATA=$(echo $DATA | perl -pe "s/<br\/>$//")   # Remove trailing line break
     rm tmp
