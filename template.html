@@ -26,6 +26,12 @@
   <div><button id="button_df">Disk usage (df -h)</button></div>
 
   <script src="jquery.min.js"></script>
+  <script>
+    //Check if jQuery was loaded
+    if(typeof jQuery === 'undefined'){
+        document.write(unescape("%3Cscript src='http://code.jquery.com/jquery-latest.min.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+  </script>
 
   <script>
     (function() {
