@@ -62,7 +62,7 @@
       lspci = $('<p></p>', {
         html: '<pre>TAG_LSPCI</pre>',
         class: 'info',
-      }).insertAfter('#button_lsblk').toggle(),
+      }).insertAfter('#button_lspci').toggle(),
       df = $('<p></p>', {
         html: '<pre>TAG_DF</pre>',
         class: 'info',
@@ -82,6 +82,9 @@
       });
       $('#button_lsblk').on('click', function() {
         lsblk.toggle();
+      });
+      $('#button_lspci').on('click', function() {
+        lspci.toggle();
       });
       $('#button_df').on('click', function() {
         df.toggle();
