@@ -3,6 +3,7 @@
 # substituting each result into template.html using tags
 
 HTML_FN=$(hostname -s).html
+echo Creating $HTML_FN
 rm -f $HTML_FN
 
 ALL_COMMANDS=("hostname" "lscpu" "cat /proc/cpuinfo" "cat /proc/meminfo" "uname -a" \
