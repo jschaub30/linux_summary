@@ -2,7 +2,7 @@
 # Collect data from a series of linux commands, then create html by
 # substituting each result into template.html using tags
 
-HTML_FN=$(hostname -s).html
+HTML_FN=index.html
 echo Creating $HTML_FN
 rm -f $HTML_FN
 
