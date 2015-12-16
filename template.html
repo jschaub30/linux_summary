@@ -5,50 +5,57 @@
   <meta charset="UTF-8">
   <title>System summary</title>
   <style>
+  button {
+    width: 200px;
+  }
 
   </style>
 </head>
 
 <body>
-  <div><button id="button_lscpu">lscpu</button></div>
-  <div><button id="button_cpuinfo">/proc/cpuinfo</button></div>
-  <div><button id="button_meminfo">/proc/meminfo</button></div>
-  <div><button id="button_linux">Linux version</button></div>
-  <div><button id="button_lsblk">lsblk</button></div>
-  <div><button id="button_df">df</button></div>
-  <div><button id="button_os">OS release</button></div>
+  <a href="https://github.com/jschaub30/linux_summary.git" target="_blank">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  <h2>System summary for HOSTNAME</h2>
+  <div><button id="button_lscpu">CPU summary (lscpu)</button></div>
+  <div><button id="button_cpuinfo">CPU info (/proc/cpuinfo)</button></div>
+  <div><button id="button_meminfo">Memory (/proc/meminfo)</button></div>
+  <div><button id="button_linux">Linux version (uname -a)</button></div>
+  <div><button id="button_lsblk">Block devices (lsblk)</button></div>
+  <div><button id="button_df">Disk usage (df -h)</button></div>
+  <div><button id="button_os">OS release (/etc/issue)</button></div>
 
   <script src="jquery.min.js"></script>
 
   <script>
     (function() {
       var lscpu = $('<p></p>', {
-        html: 'LSCPU',
-        class: 'myClass',
+        html: '<pre>LSCPU</pre>',
+        class: 'info',
       }).insertAfter('#button_lscpu').toggle(),
       cpuinfo = $('<p></p>', {
-        html: 'CPUINFO',
-        class: 'myClass',
+        html: '<pre>CPUINFO</pre>',
+        class: 'info',
       }).insertAfter('#button_cpuinfo').toggle(),
       meminfo = $('<p></p>', {
-        html: 'MEMINFO',
-        class: 'myClass',
+        html: '<pre>MEMINFO</pre>',
+        class: 'info',
       }).insertAfter('#button_meminfo').toggle(),
       linux = $('<p></p>', {
-        html: 'LINUX',
-        class: 'myClass',
+        html: '<pre>LINUX</pre>',
+        class: 'info',
       }).insertAfter('#button_linux').toggle(),
       lsblk = $('<p></p>', {
-        html: 'LSBLK',
-        class: 'myClass',
+        html: '<pre>LSBLK</pre>',
+        class: 'info',
       }).insertAfter('#button_lsblk').toggle(),
       df = $('<p></p>', {
-        html: 'DF',
-        class: 'myClass',
+        html: '<pre>DF</pre>',
+        class: 'info',
       }).insertAfter('#button_df').toggle(),
       os = $('<p></p>', {
-        html: 'OS',
-        class: 'myClass',
+        html: '<pre>OS</pre>',
+        class: 'info',
       }).insertAfter('#button_os').toggle();
 
       $('#button_lscpu').on('click', function() {
