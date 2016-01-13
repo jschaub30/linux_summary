@@ -26,6 +26,7 @@
   <div><button id="button_lspci">PCI devices (lspci)</button></div>
   <div><button id="button_df">Disk usage (df -h)</button></div>
   <div><button id="button_gpu">GPU (nvidia-smi)</button></div>
+  <div><button id="button_lstopo">NUMA topology (lstopo)</button></div>
 
   <script src="jquery.min.js"></script>
   <script>
@@ -71,7 +72,11 @@
       gpu = $('<p></p>', {
         html: '<pre>TAG_GPU</pre>',
         class: 'info',
-      }).insertAfter('#button_gpu').toggle();
+      }).insertAfter('#button_gpu').toggle(),
+      lstopo = $('<p></p>', {
+        html: '<pre>TAG_LSTOPO</pre>',
+        class: 'info',
+      }).insertAfter('#button_lstopo').toggle();
 
       $('#button_lscpu').on('click', function() {
         lscpu.toggle();
@@ -96,6 +101,9 @@
       });
       $('#button_gpu').on('click', function() {
         gpu.toggle();
+      });
+      $('#button_lstopo').on('click', function() {
+        lstopo.toggle();
       });
       $('#button_os').on('click', function() {
         os.toggle();
