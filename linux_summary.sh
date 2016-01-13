@@ -7,9 +7,9 @@ echo Creating $HTML_FN
 rm -f $HTML_FN
 
 ALL_COMMANDS=("hostname" "lscpu" "cat /proc/cpuinfo" "cat /proc/meminfo" "uname -a" \
-    "lsblk" "lspci" "df -h" "cat /etc/issue" "hostname -I")
+    "lsblk" "lspci" "df -h" "cat /etc/issue" "hostname -I" "nvidia-smi" "date +%Y%m%d-%H%M%S")
 ALL_TAGS=("TAG_HOSTNAME" "TAG_LSCPU" "TAG_CPUINFO" "TAG_MEMINFO" "TAG_LINUX" \
-    "TAG_LSBLK" "TAG_LSPCI" "TAG_DF" "TAG_OS" "TAG_IPADDR")
+    "TAG_LSBLK" "TAG_LSPCI" "TAG_DF" "TAG_OS" "TAG_IPADDR" "TAG_GPU", "TAG_DATETIME")
 
 INDEX=$(cat template.html)
 
