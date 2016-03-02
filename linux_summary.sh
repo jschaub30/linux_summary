@@ -21,13 +21,16 @@ do
     TAG=${ALL_TAGS[i]}
     # echo command is \"$COMMAND\", search is \"${TAG}\"
     $COMMAND > tmp
-    DATA=$(cat tmp | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
-    DATA=$(echo $DATA | perl -pe "s/<br\/>$//")   # Remove trailing line break
-    rm tmp
-    HTML1=$(echo $INDEX | perl -pe "s/${TAG}.*//")  # before tag
-    HTML2=$(echo $INDEX | perl -pe "s/^.*${TAG}//") # after tag
-    INDEX=$(echo $HTML1 $DATA $HTML2) # combine before and after
-    echo $INDEX > $HTML_FN
+    if [ $? -eq 0 ]
+    then
+      DATA=$(cat tmp | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
+      DATA=$(echo $DATA | perl -pe "s/<br\/>$//")   # Remove trailing line break
+      rm tmp
+      HTML1=$(echo $INDEX | perl -pe "s/${TAG}.*//")  # before tag
+      HTML2=$(echo $INDEX | perl -pe "s/^.*${TAG}//") # after tag
+      INDEX=$(echo $HTML1 $DATA $HTML2) # combine before and after
+      echo $INDEX > $HTML_FN
+    fi
 done
 
 IP=$(hostname -I | cut -d' ' -f1)
