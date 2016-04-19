@@ -15,17 +15,20 @@ ALL_TAGS=("TAG_HOSTNAME" "TAG_IFCONFIG" "TAG_LSCPU" "TAG_CPUINFO" "TAG_MEMINFO" 
 
 INDEX=$(cat template.html)
 
+TMP_FN=tmp$(date +%N) # Timestamp nanoseconds
+echo $TMP_FN
+
 for ((i = 0; i < ${#ALL_COMMANDS[@]}; i++))
 do
     COMMAND=${ALL_COMMANDS[i]}
     TAG=${ALL_TAGS[i]}
     # echo command is \"$COMMAND\", search is \"${TAG}\"
-    $COMMAND 1>tmp 2>/dev/null
+    $COMMAND 1>$TMP_FN 2>/dev/null
     if [ $? -eq 0 ]
     then
-      DATA=$(cat tmp | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
+      DATA=$(cat $TMP_FN | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
       DATA=$(echo $DATA | perl -pe "s/<br\/>$//")   # Remove trailing line break
-      rm tmp
+      rm $TMP_FN
       HTML1=$(echo $INDEX | perl -pe "s/${TAG}.*//")  # before tag
       HTML2=$(echo $INDEX | perl -pe "s/^.*${TAG}//") # after tag
       INDEX=$(echo $HTML1 $DATA $HTML2) # combine before and after
