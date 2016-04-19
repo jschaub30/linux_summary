@@ -20,7 +20,7 @@ do
     COMMAND=${ALL_COMMANDS[i]}
     TAG=${ALL_TAGS[i]}
     # echo command is \"$COMMAND\", search is \"${TAG}\"
-    $COMMAND > tmp
+    $COMMAND 1>tmp 2>/dev/null
     if [ $? -eq 0 ]
     then
       DATA=$(cat tmp | perl -pe "s/\n/\<br\/\>/g")  # newlines --> line breaks
